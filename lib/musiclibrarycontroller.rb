@@ -49,7 +49,7 @@ end
   end 
  
   def list_artists 
-    Artist.all.sort {|a, b| a.name <=> b.name}.each_with_index {|artist, index|  puts "#{index +1}. #{artist.name.chop}"}
+    Artist.all.sort {|a, b| a.name <=> b.name}.each_with_index {|artist, index|  puts "#{index +1}. #{artist.name.gsub("./spec/fixtures/other_mp3s/", ""}"}
   end 
   
   def list_genres
