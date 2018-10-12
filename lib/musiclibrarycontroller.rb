@@ -45,7 +45,7 @@ end
   
   def list_songs 
 
-    Song.all.sort {|a, b| a.name <=> b.name}.each_with_index {|song, index| puts "#{index +1}. #{song.artist.name} - #{song.name} - #{song.genre.name}"}
+    Song.all.sort {|a, b| a.name <=> b.name}.each_with_index {|song, index| puts "#{index +1}. #{song.artist.name.gsub("./spec/fixtures/other_mp3s/", "")} - #{song.name} - #{song.genre.name}"}
   end 
  
   def list_artists 
@@ -60,7 +60,7 @@ end
     puts "Please enter the name of an artist:"
     input = gets.strip
     if artist =  Artist.find_by_name(input)
-     artist.songs.sort_by(&:name).each.with_index(1) {|song, index| puts "#{index}. #{song.name.gsub("./spec/fixtures/other_mp3s/", "")} - #{song.genre.name}"}
+     artist.songs.sort_by(&:name).each.with_index(1) {|song, index| puts "#{index}. #{song.name} - #{song.genre.name}"}
     end 
   end 
   
